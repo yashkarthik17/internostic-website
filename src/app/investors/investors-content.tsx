@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -18,6 +19,10 @@ import {
   ShieldAlert,
   Store,
   Users,
+  CheckCircle2,
+  XCircle,
+  Globe,
+  Layers,
 } from "lucide-react";
 
 const marketStats = [
@@ -77,6 +82,40 @@ const channels = [
   { name: "Staples", icon: Store },
 ];
 
+const competitors = [
+  {
+    name: "PitbullTax",
+    type: "Practitioner SaaS",
+    price: "$3,000+/yr",
+    weakness: "B2B only — no direct consumer access",
+  },
+  {
+    name: "IRSLogics",
+    type: "Practitioner SaaS",
+    price: "$2,400+/yr",
+    weakness: "Legacy UI, limited automation",
+  },
+  {
+    name: "Traditional Firms",
+    type: "Service Provider",
+    price: "$3,900–$15,000",
+    weakness: "High fees, low transparency, FTC complaints",
+  },
+  {
+    name: "TurboTax / H&R Block",
+    type: "Tax Prep Only",
+    price: "$0–$200",
+    weakness: "No resolution capabilities whatsoever",
+  },
+];
+
+const growthProjections = [
+  { year: "Year 1", revenue: "$3.2M", customers: "10,700+", note: "MVP launch & initial traction" },
+  { year: "Year 2", revenue: "$14.8M", customers: "49,500+", note: "Retail partnerships go live" },
+  { year: "Year 3", revenue: "$28.5M", customers: "95,000+", note: "Full product suite at scale" },
+  { year: "Total (3yr)", revenue: "$46.5M", customers: "155,200+", note: "Projected cumulative" },
+];
+
 const statAccent = {
   burgundy: {
     border: "border-t-[#7A1C2E]",
@@ -126,7 +165,7 @@ export function InvestorsContent() {
         <div className="absolute bottom-0 left-0 right-0 section-divider" />
       </section>
 
-      {/* Market Size */}
+      {/* Market Size with IRS Forms Image */}
       <section className="py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -151,6 +190,7 @@ export function InvestorsContent() {
             </p>
           </motion.div>
 
+          {/* Market Stats Cards */}
           <div className="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-6">
             {marketStats.map((stat, index) => {
               const Icon = stat.icon;
@@ -183,6 +223,50 @@ export function InvestorsContent() {
               );
             })}
           </div>
+
+          {/* IRS Forms Image Banner */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="mt-16 max-w-4xl mx-auto"
+          >
+            <div className="relative">
+              <div className="absolute -inset-4 bg-gradient-to-br from-[#7A1C2E]/[0.06] to-[#C4956A]/[0.06] rounded-3xl blur-xl" />
+              <div className="relative bg-white rounded-2xl p-6 shadow-xl shadow-dark/10 border border-[#E8E8F0]/60">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                  <div>
+                    <Image
+                      src="/irs-forms.png"
+                      alt="MacBook showing IRS.gov Forms — the complex system Blast Tax simplifies"
+                      width={800}
+                      height={500}
+                      className="rounded-xl shadow-lg shadow-dark/10"
+                    />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-dark mb-3">
+                      The IRS System Was Not Built for Self-Service
+                    </h3>
+                    <p className="text-sm text-muted-text leading-relaxed">
+                      Navigating IRS resolution requires understanding dozens of complex forms, eligibility rules, and procedural requirements. Traditional firms charge thousands to guide people through this process. Blast Tax automates the entire workflow with AI-powered analysis and attorney-designed step-by-step guidance.
+                    </p>
+                    <div className="mt-4 flex flex-wrap gap-2">
+                      {["Form 656", "Form 433-A", "Form 9465", "Form 843", "Form 433-B", "Form 941"].map((form) => (
+                        <span
+                          key={form}
+                          className="px-2.5 py-1 bg-[#7A1C2E]/10 text-[#7A1C2E] rounded-full text-xs font-medium"
+                        >
+                          {form}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </section>
 
@@ -276,6 +360,11 @@ export function InvestorsContent() {
                   IRS resolution — Offer in Compromise, Installment Agreements,
                   Penalty Abatement, and more.
                 </p>
+                <p className="mt-4 text-base text-muted-text leading-relaxed">
+                  Unlike competitors that sell exclusively to practitioners, Blast Tax puts
+                  powerful resolution tools directly in the hands of consumers — at a price
+                  point that makes professional-grade tax resolution accessible to everyone.
+                </p>
                 <div className="mt-8 grid grid-cols-2 gap-4">
                   <div className="bg-gradient-to-br from-[#7A1C2E]/10 to-[#7A1C2E]/5 rounded-xl p-5 border border-[#7A1C2E]/10">
                     <Zap className="h-5 w-5 text-burgundy mb-2" />
@@ -308,12 +397,24 @@ export function InvestorsContent() {
                   </div>
                   <div className="space-y-0">
                     <div className="flex items-center justify-between py-4 border-b border-white/[0.08]">
-                      <span className="text-white/50 text-sm">Retail Price</span>
+                      <span className="text-white/50 text-sm">Consumer Retail Price</span>
                       <span className="font-semibold text-lg">$299</span>
+                    </div>
+                    <div className="flex items-center justify-between py-4 border-b border-white/[0.08]">
+                      <span className="text-white/50 text-sm">Business Product</span>
+                      <span className="font-semibold text-lg">$499</span>
+                    </div>
+                    <div className="flex items-center justify-between py-4 border-b border-white/[0.08]">
+                      <span className="text-white/50 text-sm">Practitioner License</span>
+                      <span className="font-semibold text-lg">$1,900/yr</span>
                     </div>
                     <div className="flex items-center justify-between py-4 border-b border-white/[0.08]">
                       <span className="text-white/50 text-sm">Affiliate Commission</span>
                       <span className="font-semibold text-lg">15%</span>
+                    </div>
+                    <div className="flex items-center justify-between py-4 border-b border-white/[0.08]">
+                      <span className="text-white/50 text-sm">Gross Margin Target</span>
+                      <span className="font-semibold text-lg text-[#28C840]">85%+</span>
                     </div>
                     <div className="pt-4">
                       <span className="text-white/50 text-sm">
@@ -338,11 +439,270 @@ export function InvestorsContent() {
         </div>
       </section>
 
-      {/* Traction + Funding */}
+      {/* Distribution Strategy */}
       <section className="relative py-24 sm:py-32 bg-[#F8F9FC]">
         <div className="absolute inset-0 bg-dots" />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center max-w-3xl mx-auto"
+          >
+            <Badge
+              variant="outline"
+              className="mb-4 text-gold border-gold/20 bg-gold/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest"
+            >
+              Go-to-Market
+            </Badge>
+            <h2 className="text-3xl sm:text-4xl font-bold text-dark tracking-tight">
+              Distribution Strategy
+            </h2>
+            <p className="mt-4 text-lg text-muted-text leading-relaxed max-w-2xl mx-auto">
+              A multi-channel approach designed to reach millions of Americans where they already shop.
+            </p>
+          </motion.div>
+
+          <div className="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            {[
+              {
+                icon: Globe,
+                title: "Direct-to-Consumer",
+                description: "BlastTax.com serves as the primary sales channel with SEO, paid search, and content marketing driving qualified traffic. Social media and influencer partnerships amplify brand awareness.",
+                items: ["BlastTax.com", "Google Ads", "Social Media", "Content Marketing"],
+              },
+              {
+                icon: Store,
+                title: "Retail Partnerships",
+                description: "Blast Tax will be sold as a boxed software product alongside TurboTax and H&R Block at major retailers — the first tax resolution product available on retail shelves.",
+                items: ["Amazon", "Walmart", "Best Buy", "Staples", "Google Shopping"],
+              },
+              {
+                icon: Layers,
+                title: "B2B / Practitioner",
+                description: "Tax professionals, CPAs, and enrolled agents can license Blast Tax Practitioner to scale their resolution practice with white-label tools and automated workflows.",
+                items: ["CPA Firms", "Enrolled Agents", "Tax Attorneys", "Resolution Firms"],
+              },
+            ].map((channel, index) => {
+              const Icon = channel.icon;
+              return (
+                <motion.div
+                  key={channel.title}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                >
+                  <Card className="border-0 shadow-lg shadow-dark/5 bg-white h-full ring-0 card-hover">
+                    <CardContent className="pt-8 pb-8 px-6">
+                      <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-[#7A1C2E] to-[#C4956A] shadow-md shadow-[#7A1C2E]/15">
+                        <Icon className="h-6 w-6 text-white" />
+                      </div>
+                      <h3 className="text-lg font-bold text-dark mb-2">{channel.title}</h3>
+                      <p className="text-sm text-muted-text leading-relaxed mb-4">
+                        {channel.description}
+                      </p>
+                      <div className="flex flex-wrap gap-1.5">
+                        {channel.items.map((item) => (
+                          <span
+                            key={item}
+                            className="px-2.5 py-1 bg-[#7A1C2E]/5 text-[#7A1C2E] rounded-full text-[11px] font-medium"
+                          >
+                            {item}
+                          </span>
+                        ))}
+                      </div>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Competitive Landscape */}
+      <section className="py-24 sm:py-32">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center max-w-3xl mx-auto"
+          >
+            <Badge
+              variant="outline"
+              className="mb-4 text-burgundy border-burgundy/20 bg-burgundy/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest"
+            >
+              Competitive Landscape
+            </Badge>
+            <h2 className="text-3xl sm:text-4xl font-bold text-dark tracking-tight">
+              How We Compare
+            </h2>
+            <p className="mt-4 text-lg text-muted-text leading-relaxed max-w-2xl mx-auto">
+              No one else offers affordable, direct-to-consumer tax resolution software. This is a whitespace opportunity.
+            </p>
+          </motion.div>
+
+          <div className="mt-16 max-w-5xl mx-auto">
+            {/* Blast Tax Card - highlighted */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="mb-4"
+            >
+              <div className="bg-gradient-to-r from-[#7A1C2E] to-[#4A1020] rounded-2xl p-6 sm:p-8 text-white shadow-xl shadow-[#7A1C2E]/15">
+                <div className="grid grid-cols-1 sm:grid-cols-4 gap-4 items-center">
+                  <div>
+                    <div className="text-xl font-bold">Blast Tax</div>
+                    <div className="text-sm text-white/50 mt-0.5">DTC + B2B Software</div>
+                  </div>
+                  <div>
+                    <div className="text-2xl font-bold text-[#C4956A]">$299</div>
+                    <div className="text-xs text-white/40">Consumer price</div>
+                  </div>
+                  <div className="sm:col-span-2">
+                    <div className="flex items-start gap-2">
+                      <CheckCircle2 className="h-4 w-4 text-[#28C840] shrink-0 mt-0.5" />
+                      <span className="text-sm text-white/70">First-mover advantage: only DTC tax resolution software on the market</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Competitor cards */}
+            <div className="space-y-3">
+              {competitors.map((comp, index) => (
+                <motion.div
+                  key={comp.name}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: index * 0.08 }}
+                >
+                  <div className="bg-white rounded-xl p-5 sm:p-6 shadow-md shadow-dark/5 border border-[#E8E8F0]/60 hover:shadow-lg transition-shadow duration-300">
+                    <div className="grid grid-cols-1 sm:grid-cols-4 gap-4 items-center">
+                      <div>
+                        <div className="text-base font-semibold text-dark">{comp.name}</div>
+                        <div className="text-xs text-muted-text mt-0.5">{comp.type}</div>
+                      </div>
+                      <div>
+                        <div className="text-lg font-bold text-dark/40">{comp.price}</div>
+                        <div className="text-xs text-muted-text">Price range</div>
+                      </div>
+                      <div className="sm:col-span-2">
+                        <div className="flex items-start gap-2">
+                          <XCircle className="h-4 w-4 text-[#FF5F57]/60 shrink-0 mt-0.5" />
+                          <span className="text-sm text-muted-text">{comp.weakness}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Growth Projections */}
+      <section className="relative py-24 sm:py-32 bg-[#F8F9FC]">
+        <div className="absolute inset-0 bg-dots" />
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center max-w-3xl mx-auto"
+          >
+            <Badge
+              variant="outline"
+              className="mb-4 text-gold border-gold/20 bg-gold/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest"
+            >
+              Financial Projections
+            </Badge>
+            <h2 className="text-3xl sm:text-4xl font-bold text-dark tracking-tight">
+              Growth Trajectory
+            </h2>
+            <p className="mt-4 text-lg text-muted-text leading-relaxed max-w-2xl mx-auto">
+              Conservative revenue projections based on addressable market penetration and retail partnership timelines.
+            </p>
+          </motion.div>
+
+          <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
+            {growthProjections.map((proj, index) => (
+              <motion.div
+                key={proj.year}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+              >
+                <Card className={`border-0 shadow-lg shadow-dark/5 bg-white h-full ring-0 card-hover ${index === 3 ? "border-t-4 border-t-[#7A1C2E]" : ""}`}>
+                  <CardContent className="pt-8 pb-8 px-6 text-center">
+                    <div className="text-xs font-semibold text-muted-text uppercase tracking-widest mb-3">
+                      {proj.year}
+                    </div>
+                    <div className="text-3xl sm:text-4xl font-bold text-burgundy tracking-tight">
+                      {proj.revenue}
+                    </div>
+                    <div className="text-sm text-dark font-medium mt-1">
+                      {proj.customers} customers
+                    </div>
+                    <div className="mt-4 h-px bg-gradient-to-r from-transparent via-[#E8E8F0] to-transparent" />
+                    <p className="mt-4 text-xs text-muted-text leading-relaxed">
+                      {proj.note}
+                    </p>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Traction + Funding with Team Photo */}
+      <section className="py-24 sm:py-32">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-5xl mx-auto">
+            {/* Team Photo */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="mb-16 text-center"
+            >
+              <Badge
+                variant="outline"
+                className="mb-4 text-burgundy border-burgundy/20 bg-burgundy/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest"
+              >
+                Team & Traction
+              </Badge>
+              <h2 className="text-3xl sm:text-4xl font-bold text-dark tracking-tight mb-8">
+                Built by Industry Veterans
+              </h2>
+              <div className="relative max-w-3xl mx-auto">
+                <div className="absolute -inset-4 bg-gradient-to-br from-[#7A1C2E]/[0.06] to-[#C4956A]/[0.06] rounded-3xl blur-xl" />
+                <Image
+                  src="/team-photo.png"
+                  alt="The Internostic team — experienced professionals building the future of tax resolution"
+                  width={800}
+                  height={500}
+                  className="relative rounded-2xl shadow-xl shadow-dark/15 w-full"
+                />
+              </div>
+              <p className="mt-6 text-base text-muted-text leading-relaxed max-w-2xl mx-auto">
+                Our team brings <strong className="text-dark">55+ years of combined experience</strong> across tax law, software engineering, AI automation, and venture building. Every product decision is informed by real-world IRS case experience.
+              </p>
+            </motion.div>
+
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               {/* Traction */}
               <motion.div
@@ -375,8 +735,7 @@ export function InvestorsContent() {
                           <div className="h-2 w-2 rounded-full bg-burgundy" />
                         </div>
                         <p className="text-muted-text text-sm leading-relaxed">
-                          Full product suite across Debt, Prep, Business, and
-                          Practitioner verticals
+                          Full product suite across <span className="font-semibold text-dark">Debt, Prep, Business, and Practitioner</span> verticals
                         </p>
                       </div>
                       <div className="flex items-start gap-3">
@@ -384,7 +743,23 @@ export function InvestorsContent() {
                           <div className="h-2 w-2 rounded-full bg-burgundy" />
                         </div>
                         <p className="text-muted-text text-sm leading-relaxed">
-                          Built by licensed tax attorneys and aerospace engineers
+                          Built by <span className="font-semibold text-dark">licensed tax attorneys and aerospace engineers</span>
+                        </p>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <div className="h-6 w-6 rounded-full bg-[#7A1C2E]/10 flex items-center justify-center shrink-0 mt-0.5">
+                          <div className="h-2 w-2 rounded-full bg-burgundy" />
+                        </div>
+                        <p className="text-muted-text text-sm leading-relaxed">
+                          Retail distribution agreements in <span className="font-semibold text-dark">active negotiation</span> with top-5 retailers
+                        </p>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <div className="h-6 w-6 rounded-full bg-[#7A1C2E]/10 flex items-center justify-center shrink-0 mt-0.5">
+                          <div className="h-2 w-2 rounded-full bg-burgundy" />
+                        </div>
+                        <p className="text-muted-text text-sm leading-relaxed">
+                          AI-powered eligibility analysis engine <span className="font-semibold text-dark">operational and tested</span>
                         </p>
                       </div>
                     </div>
@@ -423,13 +798,32 @@ export function InvestorsContent() {
                       <div className="h-px bg-gradient-to-r from-transparent via-[#E8E8F0] to-transparent" />
                       <div>
                         <div className="text-[10px] text-muted-text uppercase tracking-widest font-semibold">
-                          Projected Revenue
+                          Projected Revenue (3yr)
                         </div>
                         <div className="text-5xl font-bold text-dark mt-1 tracking-tight">
                           $46M+
                         </div>
                         <div className="text-sm text-muted-text mt-1">
                           In projected sales over the first three years
+                        </div>
+                      </div>
+                      <div className="h-px bg-gradient-to-r from-transparent via-[#E8E8F0] to-transparent" />
+                      <div>
+                        <div className="text-[10px] text-muted-text uppercase tracking-widest font-semibold mb-3">
+                          Use of Funds
+                        </div>
+                        <div className="space-y-2.5">
+                          {[
+                            { label: "Product Development", pct: "40%" },
+                            { label: "Marketing & Distribution", pct: "30%" },
+                            { label: "Operations & Compliance", pct: "20%" },
+                            { label: "Working Capital", pct: "10%" },
+                          ].map((item) => (
+                            <div key={item.label} className="flex items-center justify-between">
+                              <span className="text-sm text-muted-text">{item.label}</span>
+                              <span className="text-sm font-semibold text-dark">{item.pct}</span>
+                            </div>
+                          ))}
                         </div>
                       </div>
                     </div>
@@ -470,6 +864,25 @@ export function InvestorsContent() {
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </Link>
+            </div>
+
+            {/* Key investor highlights */}
+            <div className="mt-14 grid grid-cols-2 sm:grid-cols-4 gap-6">
+              {[
+                { value: "$7M", label: "Raise" },
+                { value: "$20B+", label: "Market" },
+                { value: "85%+", label: "Gross Margin" },
+                { value: "$46M+", label: "3yr Revenue" },
+              ].map((stat) => (
+                <div key={stat.label}>
+                  <div className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+                    {stat.value}
+                  </div>
+                  <div className="text-xs text-white/40 font-medium mt-0.5">
+                    {stat.label}
+                  </div>
+                </div>
+              ))}
             </div>
           </motion.div>
         </div>

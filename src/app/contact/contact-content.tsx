@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -73,6 +74,34 @@ export function ContactContent() {
           </motion.div>
         </div>
         <div className="absolute bottom-0 left-0 right-0 section-divider" />
+      </section>
+
+      {/* Team Photo Banner */}
+      <section className="relative py-16 sm:py-20 bg-[#F8F9FC]">
+        <div className="absolute inset-0 bg-dots opacity-30" />
+        <div className="relative mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="relative"
+          >
+            <div className="absolute -inset-4 bg-gradient-to-br from-[#7A1C2E]/[0.06] to-[#C4956A]/[0.06] rounded-3xl blur-xl" />
+            <Image
+              src="/team-photo.png"
+              alt="The Internostic team — three diverse professionals ready to help with your inquiry"
+              width={800}
+              height={500}
+              className="relative rounded-2xl shadow-xl shadow-dark/15 w-full"
+            />
+            <div className="mt-4 text-center">
+              <p className="text-sm text-muted-text italic">
+                Our team is ready to help — reach out anytime.
+              </p>
+            </div>
+          </motion.div>
+        </div>
       </section>
 
       {/* Contact Form + Info */}
@@ -357,4 +386,3 @@ export function ContactContent() {
     </>
   );
 }
-
