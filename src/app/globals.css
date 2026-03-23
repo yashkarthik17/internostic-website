@@ -103,3 +103,58 @@
     scroll-behavior: smooth;
   }
 }
+
+/* ── Decorative Utilities ── */
+
+/* Gradient orbs for background depth */
+.hero-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+/* Subtle grid pattern overlay */
+.bg-grid {
+  background-image: linear-gradient(rgba(122, 28, 46, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(122, 28, 46, 0.03) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+/* Subtle dot pattern overlay */
+.bg-dots {
+  background-image: radial-gradient(circle, rgba(122, 28, 46, 0.06) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Premium card hover lift */
+.card-hover {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px -12px rgba(26, 26, 46, 0.15);
+}
+
+/* Glow effect for app mockup */
+.mockup-glow {
+  box-shadow:
+    0 0 0 1px rgba(122, 28, 46, 0.1),
+    0 25px 50px -12px rgba(26, 26, 46, 0.35),
+    0 0 80px -20px rgba(122, 28, 46, 0.2);
+}
+
+/* Gradient text utility */
+.text-gradient {
+  background: linear-gradient(135deg, #7A1C2E 0%, #C4956A 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Section divider line */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(122, 28, 46, 0.12), transparent);
+}

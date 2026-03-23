@@ -44,6 +44,7 @@ const stats = [
     label: "Market Size (2025)",
     description:
       "The U.S. tax resolution market represents a massive, growing opportunity.",
+    accentColor: "burgundy" as const,
   },
   {
     icon: Users,
@@ -53,6 +54,7 @@ const stats = [
     label: "Delinquent Accounts",
     description:
       "Over 10 million Americans have delinquent IRS tax accounts — and counting.",
+    accentColor: "gold" as const,
   },
   {
     icon: Landmark,
@@ -62,16 +64,35 @@ const stats = [
     label: "Unpaid IRS Debt",
     description:
       "Total outstanding federal tax debt owed by individuals and businesses.",
+    accentColor: "burgundy" as const,
   },
 ];
+
+const accentStyles = {
+  burgundy: {
+    border: "border-t-[#7A1C2E]",
+    iconBg: "bg-[#7A1C2E]/10",
+    iconColor: "text-[#7A1C2E]",
+    numColor: "text-[#7A1C2E]",
+  },
+  gold: {
+    border: "border-t-[#C4956A]",
+    iconBg: "bg-[#C4956A]/10",
+    iconColor: "text-[#C4956A]",
+    numColor: "text-[#7A1C2E]",
+  },
+};
 
 export function MarketStats() {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section className="py-24 sm:py-32 bg-alt-bg" ref={ref}>
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section className="relative py-24 sm:py-32 bg-[#F8F9FC]" ref={ref}>
+      {/* Dot pattern overlay */}
+      <div className="absolute inset-0 bg-dots" />
+
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -90,6 +111,9 @@ export function MarketStats() {
             The Tax Resolution Industry{" "}
             <span className="text-burgundy">Needs Disruption</span>
           </h2>
+          <p className="mt-4 text-base sm:text-lg text-muted-text leading-relaxed max-w-2xl mx-auto">
+            Millions of Americans are trapped in IRS debt with nowhere affordable to turn. The market opportunity is enormous.
+          </p>
         </motion.div>
 
         {/* Stats Grid */}
@@ -119,6 +143,7 @@ function StatCard({
 }) {
   const count = useCountUp(stat.value, 2000, isInView);
   const Icon = stat.icon;
+  const styles = accentStyles[stat.accentColor];
 
   return (
     <motion.div
@@ -127,12 +152,12 @@ function StatCard({
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.15 }}
     >
-      <Card className="border-0 shadow-lg shadow-dark/5 bg-white h-full text-center ring-0">
+      <Card className={`border-0 border-t-4 ${styles.border} shadow-lg shadow-dark/5 bg-white h-full text-center ring-0 card-hover`}>
         <CardContent className="pt-8 pb-8 px-6">
-          <div className="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-burgundy/10">
-            <Icon className="h-7 w-7 text-burgundy" />
+          <div className={`mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-2xl ${styles.iconBg}`}>
+            <Icon className={`h-7 w-7 ${styles.iconColor}`} />
           </div>
-          <div className="text-4xl sm:text-5xl font-bold text-dark tracking-tight">
+          <div className={`text-4xl sm:text-5xl font-bold ${styles.numColor} tracking-tight`}>
             {stat.prefix}
             {count}
             {stat.suffix}

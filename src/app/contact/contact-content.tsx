@@ -5,8 +5,7 @@ import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Separator } from "@/components/ui/separator";
-import { MapPin, Phone, Mail, Clock, Send } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, Send, DollarSign } from "lucide-react";
 
 const subjects = [
   "General Inquiry",
@@ -39,11 +38,19 @@ export function ContactContent() {
     setSubmitted(true);
   }
 
+  const inputClasses =
+    "w-full rounded-xl border border-[#E8E8F0] bg-white px-4 py-3 text-sm text-dark placeholder:text-muted-text/40 focus:outline-none focus:ring-2 focus:ring-[#7A1C2E]/20 focus:border-[#7A1C2E] transition-all duration-200 hover:border-[#7A1C2E]/30";
+
   return (
     <>
       {/* Hero */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-white to-alt-bg py-24 sm:py-32">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <section className="relative overflow-hidden py-24 sm:py-32">
+        <div className="absolute inset-0 bg-gradient-to-b from-white via-[#FDFBF9] to-[#F8F9FC]" />
+        <div className="absolute inset-0 bg-grid opacity-40" />
+        <div className="hero-orb w-[400px] h-[400px] bg-[#7A1C2E]/[0.05] -top-24 -left-24 absolute" />
+        <div className="hero-orb w-[300px] h-[300px] bg-[#C4956A]/[0.06] -bottom-16 -right-16 absolute" />
+
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -65,12 +72,13 @@ export function ContactContent() {
             </p>
           </motion.div>
         </div>
+        <div className="absolute bottom-0 left-0 right-0 section-divider" />
       </section>
 
       {/* Contact Form + Info */}
       <section className="py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-12 max-w-6xl mx-auto">
             {/* Form */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -79,7 +87,9 @@ export function ContactContent() {
               transition={{ duration: 0.6 }}
               className="lg:col-span-2"
             >
-              <Card className="border-0 shadow-lg shadow-dark/5 ring-0">
+              <Card className="border-0 shadow-xl shadow-dark/8 ring-0 overflow-hidden">
+                {/* Card accent top */}
+                <div className="h-1 bg-gradient-to-r from-[#7A1C2E] via-[#C4956A] to-[#7A1C2E]" />
                 <CardContent className="p-8 sm:p-10">
                   {submitted ? (
                     <motion.div
@@ -88,8 +98,8 @@ export function ContactContent() {
                       transition={{ duration: 0.3 }}
                       className="text-center py-12"
                     >
-                      <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-burgundy/10">
-                        <Send className="h-8 w-8 text-burgundy" />
+                      <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-[#7A1C2E] to-[#C4956A] shadow-lg shadow-[#7A1C2E]/20">
+                        <Send className="h-7 w-7 text-white" />
                       </div>
                       <h3 className="text-2xl font-bold text-dark">
                         Message Sent!
@@ -117,11 +127,15 @@ export function ContactContent() {
                     </motion.div>
                   ) : (
                     <form onSubmit={handleSubmit} className="space-y-6">
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                      <div>
+                        <h3 className="text-lg font-semibold text-dark mb-1">Send us a message</h3>
+                        <p className="text-sm text-muted-text mb-6">Fill out the form below and we will be in touch.</p>
+                      </div>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                         <div>
                           <label
                             htmlFor="name"
-                            className="block text-sm font-medium text-dark mb-2"
+                            className="block text-xs font-semibold text-dark mb-2 uppercase tracking-wider"
                           >
                             Name <span className="text-burgundy">*</span>
                           </label>
@@ -132,14 +146,14 @@ export function ContactContent() {
                             required
                             value={formState.name}
                             onChange={handleChange}
-                            className="w-full rounded-lg border border-custom-border bg-white px-4 py-2.5 text-sm text-dark placeholder:text-muted-text/50 focus:outline-none focus:ring-2 focus:ring-burgundy/20 focus:border-burgundy transition-colors"
+                            className={inputClasses}
                             placeholder="Your full name"
                           />
                         </div>
                         <div>
                           <label
                             htmlFor="email"
-                            className="block text-sm font-medium text-dark mb-2"
+                            className="block text-xs font-semibold text-dark mb-2 uppercase tracking-wider"
                           >
                             Email <span className="text-burgundy">*</span>
                           </label>
@@ -150,16 +164,16 @@ export function ContactContent() {
                             required
                             value={formState.email}
                             onChange={handleChange}
-                            className="w-full rounded-lg border border-custom-border bg-white px-4 py-2.5 text-sm text-dark placeholder:text-muted-text/50 focus:outline-none focus:ring-2 focus:ring-burgundy/20 focus:border-burgundy transition-colors"
+                            className={inputClasses}
                             placeholder="you@company.com"
                           />
                         </div>
                       </div>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                         <div>
                           <label
                             htmlFor="phone"
-                            className="block text-sm font-medium text-dark mb-2"
+                            className="block text-xs font-semibold text-dark mb-2 uppercase tracking-wider"
                           >
                             Phone
                           </label>
@@ -169,14 +183,14 @@ export function ContactContent() {
                             name="phone"
                             value={formState.phone}
                             onChange={handleChange}
-                            className="w-full rounded-lg border border-custom-border bg-white px-4 py-2.5 text-sm text-dark placeholder:text-muted-text/50 focus:outline-none focus:ring-2 focus:ring-burgundy/20 focus:border-burgundy transition-colors"
+                            className={inputClasses}
                             placeholder="(555) 000-0000"
                           />
                         </div>
                         <div>
                           <label
                             htmlFor="subject"
-                            className="block text-sm font-medium text-dark mb-2"
+                            className="block text-xs font-semibold text-dark mb-2 uppercase tracking-wider"
                           >
                             Subject <span className="text-burgundy">*</span>
                           </label>
@@ -186,7 +200,7 @@ export function ContactContent() {
                             required
                             value={formState.subject}
                             onChange={handleChange}
-                            className="w-full rounded-lg border border-custom-border bg-white px-4 py-2.5 text-sm text-dark focus:outline-none focus:ring-2 focus:ring-burgundy/20 focus:border-burgundy transition-colors appearance-none"
+                            className={`${inputClasses} appearance-none`}
                           >
                             <option value="" disabled>
                               Select a subject
@@ -202,7 +216,7 @@ export function ContactContent() {
                       <div>
                         <label
                           htmlFor="message"
-                          className="block text-sm font-medium text-dark mb-2"
+                          className="block text-xs font-semibold text-dark mb-2 uppercase tracking-wider"
                         >
                           Message <span className="text-burgundy">*</span>
                         </label>
@@ -213,13 +227,13 @@ export function ContactContent() {
                           rows={5}
                           value={formState.message}
                           onChange={handleChange}
-                          className="w-full rounded-lg border border-custom-border bg-white px-4 py-2.5 text-sm text-dark placeholder:text-muted-text/50 focus:outline-none focus:ring-2 focus:ring-burgundy/20 focus:border-burgundy transition-colors resize-none"
+                          className={`${inputClasses} resize-none`}
                           placeholder="Tell us how we can help..."
                         />
                       </div>
                       <Button
                         type="submit"
-                        className="bg-burgundy hover:bg-burgundy/90 text-white rounded-full px-8 h-11 text-sm font-semibold cursor-pointer"
+                        className="bg-[#7A1C2E] hover:bg-[#7A1C2E]/90 text-white rounded-full px-8 h-12 text-sm font-semibold shadow-md shadow-[#7A1C2E]/20 hover:shadow-lg hover:shadow-[#7A1C2E]/25 transition-all duration-200 cursor-pointer"
                       >
                         Send Message
                         <Send className="ml-2 h-4 w-4" />
@@ -238,18 +252,18 @@ export function ContactContent() {
               transition={{ duration: 0.6, delay: 0.15 }}
               className="space-y-6"
             >
-              <Card className="border-0 shadow-lg shadow-dark/5 ring-0">
+              <Card className="border-0 shadow-xl shadow-dark/5 ring-0 card-hover">
                 <CardContent className="p-6 sm:p-8">
                   <h3 className="text-lg font-semibold text-dark mb-6">
                     Contact Information
                   </h3>
                   <div className="space-y-5">
                     <div className="flex items-start gap-4">
-                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-burgundy/10">
-                        <MapPin className="h-5 w-5 text-burgundy" />
+                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-[#7A1C2E] to-[#9B2D42] shadow-sm shadow-[#7A1C2E]/20">
+                        <MapPin className="h-5 w-5 text-white" />
                       </div>
                       <div>
-                        <div className="text-sm font-medium text-dark">
+                        <div className="text-sm font-semibold text-dark">
                           Address
                         </div>
                         <p className="text-sm text-muted-text mt-0.5">
@@ -259,13 +273,13 @@ export function ContactContent() {
                         </p>
                       </div>
                     </div>
-                    <Separator className="bg-custom-border" />
+                    <div className="h-px bg-gradient-to-r from-transparent via-[#E8E8F0] to-transparent" />
                     <div className="flex items-start gap-4">
-                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-burgundy/10">
-                        <Phone className="h-5 w-5 text-burgundy" />
+                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-[#7A1C2E] to-[#9B2D42] shadow-sm shadow-[#7A1C2E]/20">
+                        <Phone className="h-5 w-5 text-white" />
                       </div>
                       <div>
-                        <div className="text-sm font-medium text-dark">
+                        <div className="text-sm font-semibold text-dark">
                           Phone
                         </div>
                         <a
@@ -276,13 +290,13 @@ export function ContactContent() {
                         </a>
                       </div>
                     </div>
-                    <Separator className="bg-custom-border" />
+                    <div className="h-px bg-gradient-to-r from-transparent via-[#E8E8F0] to-transparent" />
                     <div className="flex items-start gap-4">
-                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-burgundy/10">
-                        <Mail className="h-5 w-5 text-burgundy" />
+                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-[#7A1C2E] to-[#9B2D42] shadow-sm shadow-[#7A1C2E]/20">
+                        <Mail className="h-5 w-5 text-white" />
                       </div>
                       <div>
-                        <div className="text-sm font-medium text-dark">
+                        <div className="text-sm font-semibold text-dark">
                           Email
                         </div>
                         <a
@@ -293,13 +307,13 @@ export function ContactContent() {
                         </a>
                       </div>
                     </div>
-                    <Separator className="bg-custom-border" />
+                    <div className="h-px bg-gradient-to-r from-transparent via-[#E8E8F0] to-transparent" />
                     <div className="flex items-start gap-4">
-                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-burgundy/10">
-                        <Clock className="h-5 w-5 text-burgundy" />
+                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-[#7A1C2E] to-[#9B2D42] shadow-sm shadow-[#7A1C2E]/20">
+                        <Clock className="h-5 w-5 text-white" />
                       </div>
                       <div>
-                        <div className="text-sm font-medium text-dark">
+                        <div className="text-sm font-semibold text-dark">
                           Hours
                         </div>
                         <p className="text-sm text-muted-text mt-0.5">
@@ -311,11 +325,18 @@ export function ContactContent() {
                 </CardContent>
               </Card>
 
-              <Card className="border-0 shadow-lg shadow-dark/5 bg-warm-bg ring-0">
+              <Card className="border-0 shadow-xl shadow-dark/5 ring-0 overflow-hidden card-hover">
+                {/* Gold accent top */}
+                <div className="h-1 bg-gradient-to-r from-[#C4956A] to-[#C4956A]/40" />
                 <CardContent className="p-6 sm:p-8">
-                  <h3 className="text-lg font-semibold text-dark mb-2">
-                    Investment Inquiries
-                  </h3>
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#C4956A]/10">
+                      <DollarSign className="h-4 w-4 text-[#C4956A]" />
+                    </div>
+                    <h3 className="text-lg font-semibold text-dark">
+                      Investment Inquiries
+                    </h3>
+                  </div>
                   <p className="text-sm text-muted-text leading-relaxed">
                     Interested in investing in Internostic? Select
                     &quot;Investment Inquiry&quot; from the subject dropdown, or
@@ -336,3 +357,4 @@ export function ContactContent() {
     </>
   );
 }
+

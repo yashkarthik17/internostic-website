@@ -36,8 +36,8 @@ export function Navbar() {
     <header
       className={`sticky top-0 z-50 w-full transition-all duration-300 ${
         scrolled
-          ? "bg-white/80 backdrop-blur-lg shadow-sm border-b border-custom-border"
-          : "bg-white"
+          ? "bg-white/80 backdrop-blur-xl shadow-sm border-b border-[#E8E8F0]/80"
+          : "bg-white/95 backdrop-blur-sm border-b border-transparent"
       }`}
     >
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
@@ -59,7 +59,7 @@ export function Navbar() {
             <Link
               key={link.label}
               href={link.href}
-              className="text-sm font-medium text-muted-text hover:text-dark transition-colors"
+              className="relative text-sm font-medium text-muted-text hover:text-dark transition-colors duration-200 py-1 after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[2px] after:bg-burgundy after:scale-x-0 after:transition-transform after:duration-200 hover:after:scale-x-100 after:origin-center after:rounded-full"
             >
               {link.label}
             </Link>
@@ -69,7 +69,7 @@ export function Navbar() {
         {/* Desktop CTA */}
         <div className="hidden md:flex items-center">
           <Link href="https://blasttax.com" target="_blank" rel="noopener noreferrer">
-            <Button className="bg-burgundy hover:bg-burgundy/90 text-white rounded-full px-5 h-9 text-sm font-medium cursor-pointer">
+            <Button className="bg-burgundy hover:bg-burgundy/90 text-white rounded-full px-5 h-9 text-sm font-medium shadow-sm shadow-burgundy/20 hover:shadow-md hover:shadow-burgundy/25 transition-all duration-200 cursor-pointer">
               Try Blast Tax &rarr;
             </Button>
           </Link>
