@@ -30,14 +30,20 @@ const stats = [
 
 export function ProblemSection() {
   return (
-    <section className="relative py-24 sm:py-32 overflow-hidden">
-      {/* Subtle background pattern */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#F8F4F0] via-white to-[#F8F9FC]" />
-      <div className="absolute inset-0 bg-dots opacity-40" />
+    <section className="relative py-20 sm:py-32 overflow-hidden bg-[#1A1A2E]">
+      {/* Grid pattern overlay */}
+      <div
+        className="absolute inset-0 opacity-[0.03]"
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)",
+          backgroundSize: "64px 64px",
+        }}
+      />
 
       {/* Decorative orbs */}
-      <div className="hero-orb w-[400px] h-[400px] bg-[#7A1C2E]/[0.04] -top-24 -left-24 absolute" />
-      <div className="hero-orb w-[300px] h-[300px] bg-[#C4956A]/[0.06] -bottom-16 -right-16 absolute" />
+      <div className="hero-orb w-[400px] h-[400px] bg-[#7A1C2E]/20 -top-24 -left-24 absolute" />
+      <div className="hero-orb w-[300px] h-[300px] bg-[#C4956A]/10 -bottom-16 -right-16 absolute" />
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section badge */}
@@ -46,40 +52,40 @@ export function ProblemSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-16"
         >
           <Badge
             variant="outline"
-            className="mb-4 text-[#FF5F57] border-[#FF5F57]/20 bg-[#FF5F57]/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest"
+            className="mb-4 text-[#FF5F57] border-[#FF5F57]/20 bg-[#FF5F57]/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest"
           >
             The Problem We&apos;re Solving
           </Badge>
         </motion.div>
 
-        {/* Image + Text Split */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Left: Image */}
+        {/* Image + Text Split — stacks on mobile */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+          {/* Left: Image — full-width on mobile, on top */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
-            className="relative"
+            className="relative order-1 lg:order-1"
           >
-            <div className="absolute -inset-4 bg-gradient-to-br from-[#7A1C2E]/[0.06] to-[#C4956A]/[0.06] rounded-3xl blur-xl" />
+            <div className="absolute -inset-4 bg-gradient-to-br from-[#7A1C2E]/20 to-[#C4956A]/10 rounded-3xl blur-xl" />
             <div className="relative">
               <Image
                 src="/irs-forms.png"
                 alt="MacBook displaying IRS.gov Forms page on a desk with coffee and papers in a warm cafe setting"
                 width={800}
                 height={500}
-                className="rounded-2xl shadow-2xl shadow-dark/20 border border-white/60"
+                className="rounded-2xl shadow-2xl shadow-black/40 border border-white/10 w-full"
               />
               {/* Floating badge overlay */}
-              <div className="absolute -bottom-4 -right-4 sm:-bottom-6 sm:-right-6 bg-white rounded-xl shadow-xl shadow-dark/15 p-4 border border-[#E8E8F0]/60">
-                <div className="flex items-center gap-3">
-                  <div className="h-10 w-10 rounded-full bg-[#FF5F57]/10 flex items-center justify-center">
-                    <AlertTriangle className="h-5 w-5 text-[#FF5F57]" />
+              <div className="absolute -bottom-4 -right-2 sm:-bottom-6 sm:-right-6 bg-white rounded-xl shadow-xl shadow-black/20 p-3 sm:p-4 border border-[#E8E8F0]/60">
+                <div className="flex items-center gap-2 sm:gap-3">
+                  <div className="h-8 w-8 sm:h-10 sm:w-10 rounded-full bg-[#FF5F57]/10 flex items-center justify-center">
+                    <AlertTriangle className="h-4 w-4 sm:h-5 sm:w-5 text-[#FF5F57]" />
                   </div>
                   <div>
                     <div className="text-xs font-semibold text-dark">Industry Warning</div>
@@ -96,28 +102,29 @@ export function ProblemSection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.1 }}
+            className="order-2 lg:order-2"
           >
-            <h2 className="text-3xl sm:text-4xl font-bold text-dark tracking-tight leading-tight">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white tracking-tight leading-tight">
               Tax Resolution Is a $20 Billion Industry —{" "}
-              <span className="text-burgundy">And It&apos;s Broken</span>
+              <span className="text-[#C4956A]">And It&apos;s Broken</span>
             </h2>
 
-            <div className="mt-6 space-y-4">
-              <p className="text-base text-muted-text leading-relaxed">
-                The FTC has issued repeated warnings about <strong className="text-dark">800-number tax resolution firms</strong> that charge Americans thousands of dollars upfront — only to deliver little or nothing in return. These firms prey on vulnerable taxpayers, making promises they can&apos;t keep.
+            <div className="mt-5 sm:mt-6 space-y-4">
+              <p className="text-sm sm:text-base text-white/60 leading-relaxed">
+                The FTC has issued repeated warnings about <strong className="text-white/90">800-number tax resolution firms</strong> that charge Americans thousands of dollars upfront — only to deliver little or nothing in return. These firms prey on vulnerable taxpayers, making promises they can&apos;t keep.
               </p>
-              <p className="text-base text-muted-text leading-relaxed">
-                The truth is stark: <strong className="text-dark">99% of people don&apos;t qualify</strong> for the programs these firms advertise. The average cost of professional tax resolution is <strong className="text-burgundy">$3,900 per year</strong> — far out of reach for most Americans who need it.
+              <p className="text-sm sm:text-base text-white/60 leading-relaxed">
+                The truth is stark: <strong className="text-white/90">99% of people don&apos;t qualify</strong> for the programs these firms advertise. The average cost of professional tax resolution is <strong className="text-[#C4956A]">$3,900 per year</strong> — far out of reach for most Americans who need it.
               </p>
-              <p className="text-base text-muted-text leading-relaxed">
-                <strong className="text-dark">Blast Tax changes everything.</strong> Professional-grade tax resolution software, guided by licensed attorneys, for just{" "}
-                <span className="inline-flex items-center gap-1 bg-[#7A1C2E]/10 text-burgundy font-bold px-2 py-0.5 rounded-md text-sm">$299</span>
+              <p className="text-sm sm:text-base text-white/60 leading-relaxed">
+                <strong className="text-white/90">Blast Tax changes everything.</strong> Professional-grade tax resolution software, guided by licensed attorneys, for just{" "}
+                <span className="inline-flex items-center gap-1 bg-[#7A1C2E]/50 text-[#C4956A] font-bold px-2 py-0.5 rounded-md text-sm border border-[#7A1C2E]/30">$299</span>
                 .
               </p>
             </div>
 
-            {/* Stats Grid */}
-            <div className="mt-10 grid grid-cols-2 gap-4">
+            {/* Stats Grid — 2-col on mobile, with glow borders */}
+            <div className="mt-8 sm:mt-10 grid grid-cols-2 gap-3 sm:gap-4">
               {stats.map((stat, index) => {
                 const Icon = stat.icon;
                 return (
@@ -127,15 +134,15 @@ export function ProblemSection() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.4, delay: 0.2 + index * 0.1 }}
-                    className="bg-white rounded-xl p-4 shadow-md shadow-dark/5 border border-[#E8E8F0]/60 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+                    className="bg-white/[0.06] backdrop-blur-sm rounded-xl p-3 sm:p-4 border border-white/[0.08] hover:bg-white/[0.1] hover:border-[#C4956A]/30 transition-all duration-300 group"
                   >
-                    <div className="flex items-center gap-2 mb-2">
-                      <div className="h-7 w-7 rounded-lg bg-[#7A1C2E]/10 flex items-center justify-center">
-                        <Icon className="h-3.5 w-3.5 text-burgundy" />
+                    <div className="flex items-center gap-2 mb-1.5 sm:mb-2">
+                      <div className="h-6 w-6 sm:h-7 sm:w-7 rounded-lg bg-[#7A1C2E]/40 flex items-center justify-center border border-[#7A1C2E]/30">
+                        <Icon className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-[#C4956A]" />
                       </div>
-                      <span className="text-xl font-bold text-burgundy">{stat.value}</span>
+                      <span className="text-lg sm:text-xl font-bold text-[#C4956A] group-hover:text-white transition-colors">{stat.value}</span>
                     </div>
-                    <p className="text-xs text-muted-text leading-relaxed">{stat.label}</p>
+                    <p className="text-[10px] sm:text-xs text-white/40 leading-relaxed">{stat.label}</p>
                   </motion.div>
                 );
               })}
@@ -144,8 +151,8 @@ export function ProblemSection() {
         </div>
       </div>
 
-      {/* Section bottom divider */}
-      <div className="absolute bottom-0 left-0 right-0 section-divider" />
+      {/* Wave separator at bottom */}
+      <div className="wave-separator-to-light absolute bottom-0 left-0 right-0" />
     </section>
   );
 }

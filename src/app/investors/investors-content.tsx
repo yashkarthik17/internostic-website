@@ -133,7 +133,7 @@ export function InvestorsContent() {
   return (
     <>
       {/* Hero */}
-      <section className="relative overflow-hidden py-24 sm:py-32">
+      <section className="relative overflow-hidden py-16 sm:py-32">
         <div className="absolute inset-0 bg-gradient-to-b from-white via-[#FDFBF9] to-[#F8F9FC]" />
         <div className="absolute inset-0 bg-grid opacity-40" />
         <div className="hero-orb w-[500px] h-[500px] bg-[#C4956A]/[0.06] -top-32 -left-32 absolute" />
@@ -152,9 +152,9 @@ export function InvestorsContent() {
             >
               Investment Opportunity
             </Badge>
-            <h1 className="text-4xl sm:text-5xl font-bold text-dark tracking-tight leading-tight">
+            <h1 className="text-3xl sm:text-5xl font-bold text-dark tracking-tight leading-tight">
               Invest in the Future of{" "}
-              <span className="text-burgundy">Tax Resolution</span>
+              <span className="text-gradient-bold">Tax Resolution</span>
             </h1>
             <p className="mt-6 text-lg sm:text-xl text-muted-text leading-relaxed max-w-2xl mx-auto">
               Blast Tax is poised to disrupt a $20B+ industry with the first
@@ -166,7 +166,7 @@ export function InvestorsContent() {
       </section>
 
       {/* Market Size with IRS Forms Image */}
-      <section className="py-24 sm:py-32">
+      <section className="py-16 sm:py-32">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -181,7 +181,7 @@ export function InvestorsContent() {
             >
               The Opportunity
             </Badge>
-            <h2 className="text-3xl sm:text-4xl font-bold text-dark tracking-tight">
+            <h2 className="text-2xl sm:text-4xl font-bold text-dark tracking-tight">
               Market Opportunity
             </h2>
             <p className="mt-4 text-lg text-muted-text leading-relaxed">
@@ -271,7 +271,7 @@ export function InvestorsContent() {
       </section>
 
       {/* The Problem */}
-      <section className="relative py-24 sm:py-32 bg-[#1A1A2E] text-white overflow-hidden">
+      <section className="relative py-16 sm:py-32 bg-[#1A1A2E] text-white overflow-hidden">
         {/* Decorative elements */}
         <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)", backgroundSize: "64px 64px" }} />
         <div className="hero-orb w-[400px] h-[400px] bg-[#7A1C2E]/20 -top-24 -right-24 absolute" />
@@ -291,7 +291,7 @@ export function InvestorsContent() {
             >
               The Problem
             </Badge>
-            <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">
+            <h2 className="text-2xl sm:text-4xl font-bold text-white tracking-tight">
               A Broken Industry
             </h2>
             <p className="mt-4 text-base text-white/50 leading-relaxed max-w-xl mx-auto">
@@ -333,7 +333,7 @@ export function InvestorsContent() {
       </section>
 
       {/* The Solution */}
-      <section className="py-24 sm:py-32">
+      <section className="py-16 sm:py-32">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-5xl mx-auto">
             <motion.div
@@ -350,7 +350,7 @@ export function InvestorsContent() {
                 >
                   The Solution
                 </Badge>
-                <h2 className="text-3xl sm:text-4xl font-bold text-dark tracking-tight">
+                <h2 className="text-2xl sm:text-4xl font-bold text-dark tracking-tight">
                   Blast Tax
                 </h2>
                 <Separator className="my-6 w-20 bg-gold h-0.5" />
@@ -440,7 +440,7 @@ export function InvestorsContent() {
       </section>
 
       {/* Distribution Strategy */}
-      <section className="relative py-24 sm:py-32 bg-[#F8F9FC]">
+      <section className="relative py-16 sm:py-32 bg-[#F8F9FC]">
         <div className="absolute inset-0 bg-dots" />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -456,7 +456,7 @@ export function InvestorsContent() {
             >
               Go-to-Market
             </Badge>
-            <h2 className="text-3xl sm:text-4xl font-bold text-dark tracking-tight">
+            <h2 className="text-2xl sm:text-4xl font-bold text-dark tracking-tight">
               Distribution Strategy
             </h2>
             <p className="mt-4 text-lg text-muted-text leading-relaxed max-w-2xl mx-auto">
@@ -523,7 +523,7 @@ export function InvestorsContent() {
       </section>
 
       {/* Competitive Landscape */}
-      <section className="py-24 sm:py-32">
+      <section className="py-16 sm:py-32">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -538,7 +538,7 @@ export function InvestorsContent() {
             >
               Competitive Landscape
             </Badge>
-            <h2 className="text-3xl sm:text-4xl font-bold text-dark tracking-tight">
+            <h2 className="text-2xl sm:text-4xl font-bold text-dark tracking-tight">
               How We Compare
             </h2>
             <p className="mt-4 text-lg text-muted-text leading-relaxed max-w-2xl mx-auto">
@@ -611,7 +611,7 @@ export function InvestorsContent() {
       </section>
 
       {/* Growth Projections */}
-      <section className="relative py-24 sm:py-32 bg-[#F8F9FC]">
+      <section className="relative py-16 sm:py-32 bg-[#F8F9FC]">
         <div className="absolute inset-0 bg-dots" />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -627,7 +627,7 @@ export function InvestorsContent() {
             >
               Financial Projections
             </Badge>
-            <h2 className="text-3xl sm:text-4xl font-bold text-dark tracking-tight">
+            <h2 className="text-2xl sm:text-4xl font-bold text-dark tracking-tight">
               Growth Trajectory
             </h2>
             <p className="mt-4 text-lg text-muted-text leading-relaxed max-w-2xl mx-auto">
@@ -668,7 +668,7 @@ export function InvestorsContent() {
       </section>
 
       {/* Traction + Funding with Team Photo */}
-      <section className="py-24 sm:py-32">
+      <section className="py-16 sm:py-32">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-5xl mx-auto">
             {/* Team Photo */}
@@ -685,7 +685,7 @@ export function InvestorsContent() {
               >
                 Team & Traction
               </Badge>
-              <h2 className="text-3xl sm:text-4xl font-bold text-dark tracking-tight mb-8">
+              <h2 className="text-2xl sm:text-4xl font-bold text-dark tracking-tight mb-6 sm:mb-8">
                 Built by Industry Veterans
               </h2>
               <div className="relative max-w-3xl mx-auto">
@@ -836,7 +836,7 @@ export function InvestorsContent() {
       </section>
 
       {/* CTA */}
-      <section className="relative py-24 sm:py-32 overflow-hidden">
+      <section className="relative py-16 sm:py-32 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-[#7A1C2E] via-[#6A1828] to-[#4A1020]" />
         <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-white/[0.04] rounded-full blur-[100px]" />
         <div className="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-[#C4956A]/[0.08] rounded-full blur-[120px]" />
@@ -850,7 +850,7 @@ export function InvestorsContent() {
             transition={{ duration: 0.6 }}
           >
             <div className="mx-auto mb-8 w-12 h-1 bg-gradient-to-r from-[#C4956A] to-[#C4956A]/40 rounded-full" />
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight">
+            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight">
               Ready to Learn More?
             </h2>
             <p className="mt-4 text-lg text-white/60 max-w-2xl mx-auto leading-relaxed">

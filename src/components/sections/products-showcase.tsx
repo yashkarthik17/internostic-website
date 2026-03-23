@@ -118,7 +118,7 @@ export function ProductsShowcase() {
   const activeProduct = products.find((p) => p.id === activeTab)!;
 
   return (
-    <section className="relative py-24 sm:py-32 overflow-hidden">
+    <section className="relative py-20 sm:py-32 overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#F8F9FC] via-white to-[#FDFBF9]" />
       <div className="absolute inset-0 bg-grid opacity-30" />
@@ -138,9 +138,9 @@ export function ProductsShowcase() {
           >
             Our Product Suite
           </Badge>
-          <h2 className="text-3xl sm:text-4xl font-bold text-dark tracking-tight">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-dark tracking-tight">
             Four Products.{" "}
-            <span className="text-burgundy">One Mission.</span>
+            <span className="text-gradient-bold">One Mission.</span>
           </h2>
           <p className="mt-4 text-base sm:text-lg text-muted-text leading-relaxed max-w-2xl mx-auto">
             Blast Tax is a comprehensive suite of tax resolution software
@@ -155,27 +155,29 @@ export function ProductsShowcase() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="mt-12 flex flex-wrap justify-center gap-2 sm:gap-3"
+          className="mt-12"
         >
-          {products.map((product) => {
-            const Icon = product.icon;
-            const isActive = activeTab === product.id;
-            return (
-              <button
-                key={product.id}
-                onClick={() => setActiveTab(product.id)}
-                className={`flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-200 cursor-pointer ${
-                  isActive
-                    ? "bg-burgundy text-white shadow-lg shadow-burgundy/25 scale-[1.02]"
-                    : "bg-white text-muted-text hover:text-dark border border-custom-border hover:border-burgundy/30 hover:shadow-md hover:shadow-dark/5"
-                }`}
-              >
-                <Icon className="h-4 w-4" />
-                <span className="hidden sm:inline">{product.label}</span>
-                <span className="sm:hidden">{product.shortLabel}</span>
-              </button>
-            );
-          })}
+          <div className="tabs-scroll justify-center sm:flex-wrap sm:flex sm:justify-center sm:gap-3">
+            {products.map((product) => {
+              const Icon = product.icon;
+              const isActive = activeTab === product.id;
+              return (
+                <button
+                  key={product.id}
+                  onClick={() => setActiveTab(product.id)}
+                  className={`flex items-center gap-2 px-4 sm:px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-200 cursor-pointer whitespace-nowrap shrink-0 ${
+                    isActive
+                      ? "bg-burgundy text-white shadow-lg shadow-burgundy/25 scale-[1.02]"
+                      : "bg-white text-muted-text hover:text-dark border border-custom-border hover:border-burgundy/30 hover:shadow-md hover:shadow-dark/5"
+                  }`}
+                >
+                  <Icon className="h-4 w-4" />
+                  <span className="hidden sm:inline">{product.label}</span>
+                  <span className="sm:hidden">{product.shortLabel}</span>
+                </button>
+              );
+            })}
+          </div>
         </motion.div>
 
         {/* Product Detail Card */}
@@ -188,12 +190,12 @@ export function ProductsShowcase() {
             transition={{ duration: 0.4 }}
             className="mt-10 max-w-5xl mx-auto"
           >
-            <div className="bg-white rounded-2xl shadow-xl shadow-dark/8 border border-[#E8E8F0]/60 overflow-hidden">
+            <div className="bg-white rounded-2xl shadow-xl shadow-dark/8 border border-[#E8E8F0]/60 overflow-hidden card-gradient-border">
               {/* Top accent bar */}
               <div className={`h-1.5 bg-gradient-to-r ${activeProduct.accentFrom} ${activeProduct.accentTo}`} />
 
-              <div className="p-8 sm:p-10 lg:p-12">
-                <div className="grid grid-cols-1 lg:grid-cols-5 gap-10">
+              <div className="p-5 sm:p-8 lg:p-12">
+                <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-10">
                   {/* Left side - info */}
                   <div className="lg:col-span-3">
                     <div className="flex items-center gap-3 mb-4">
@@ -215,7 +217,7 @@ export function ProductsShowcase() {
                     </p>
 
                     {/* Features List */}
-                    <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div className="mt-6 sm:mt-8 grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3">
                       {activeProduct.features.map((feature, i) => (
                         <motion.div
                           key={feature}
@@ -244,7 +246,7 @@ export function ProductsShowcase() {
 
                   {/* Right side - price card */}
                   <div className="lg:col-span-2">
-                    <div className={`relative rounded-2xl p-6 sm:p-8 border ${activeProduct.borderAccent} ${activeProduct.bgAccent}`}>
+                    <div className={`relative rounded-2xl p-5 sm:p-8 border ${activeProduct.borderAccent} ${activeProduct.bgAccent}`}>
                       <div className="absolute -inset-1 bg-gradient-to-br from-white/50 to-transparent rounded-2xl blur-sm" />
                       <div className="relative">
                         <div className="text-xs font-semibold text-muted-text uppercase tracking-widest mb-2">
@@ -302,8 +304,6 @@ export function ProductsShowcase() {
         </AnimatePresence>
       </div>
 
-      {/* Section bottom divider */}
-      <div className="absolute bottom-0 left-0 right-0 section-divider" />
     </section>
   );
 }

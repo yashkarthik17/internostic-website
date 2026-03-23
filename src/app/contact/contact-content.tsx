@@ -45,7 +45,7 @@ export function ContactContent() {
   return (
     <>
       {/* Hero */}
-      <section className="relative overflow-hidden py-24 sm:py-32">
+      <section className="relative overflow-hidden py-16 sm:py-32">
         <div className="absolute inset-0 bg-gradient-to-b from-white via-[#FDFBF9] to-[#F8F9FC]" />
         <div className="absolute inset-0 bg-grid opacity-40" />
         <div className="hero-orb w-[400px] h-[400px] bg-[#7A1C2E]/[0.05] -top-24 -left-24 absolute" />
@@ -64,7 +64,7 @@ export function ContactContent() {
             >
               Contact Us
             </Badge>
-            <h1 className="text-4xl sm:text-5xl font-bold text-dark tracking-tight leading-tight">
+            <h1 className="text-3xl sm:text-5xl font-bold text-dark tracking-tight leading-tight">
               Get In Touch
             </h1>
             <p className="mt-6 text-lg sm:text-xl text-muted-text leading-relaxed">
@@ -77,7 +77,7 @@ export function ContactContent() {
       </section>
 
       {/* Team Photo Banner */}
-      <section className="relative py-16 sm:py-20 bg-[#F8F9FC]">
+      <section className="relative py-12 sm:py-20 bg-[#F8F9FC]">
         <div className="absolute inset-0 bg-dots opacity-30" />
         <div className="relative mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -105,7 +105,7 @@ export function ContactContent() {
       </section>
 
       {/* Contact Form + Info */}
-      <section className="py-24 sm:py-32">
+      <section className="py-16 sm:py-32">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-12 max-w-6xl mx-auto">
             {/* Form */}

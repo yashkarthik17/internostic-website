@@ -42,7 +42,7 @@ const reasons = [
 
 export function WhyInternostic() {
   return (
-    <section className="relative py-24 sm:py-32 overflow-hidden">
+    <section className="relative py-20 sm:py-32 overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#F8F9FC] via-white to-white" />
       <div className="absolute inset-0 bg-dots opacity-30" />
@@ -66,9 +66,9 @@ export function WhyInternostic() {
           >
             Why Internostic
           </Badge>
-          <h2 className="text-3xl sm:text-4xl font-bold text-dark tracking-tight">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-dark tracking-tight">
             What Sets Us{" "}
-            <span className="text-burgundy">Apart</span>
+            <span className="text-gradient-bold">Apart</span>
           </h2>
           <p className="mt-4 text-base sm:text-lg text-muted-text leading-relaxed max-w-2xl mx-auto">
             We combine deep tax expertise with cutting-edge technology to
@@ -88,15 +88,15 @@ export function WhyInternostic() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
-                <Card className="border-0 shadow-lg shadow-dark/5 bg-white h-full ring-0 card-hover group">
-                  <CardContent className="pt-8 pb-8 px-8">
-                    <div className={`mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br ${reason.accent} shadow-lg ${reason.shadowColor} group-hover:shadow-xl transition-shadow duration-300`}>
-                      <Icon className="h-7 w-7 text-white" />
+                <Card className="border-0 shadow-lg shadow-dark/5 bg-white h-full ring-0 card-hover card-gradient-border card-glow group">
+                  <CardContent className="pt-6 pb-6 px-5 sm:pt-8 sm:pb-8 sm:px-8">
+                    <div className={`mb-4 sm:mb-6 flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-2xl bg-gradient-to-br ${reason.accent} shadow-lg ${reason.shadowColor} group-hover:shadow-xl transition-shadow duration-300`}>
+                      <Icon className="h-6 w-6 sm:h-7 sm:w-7 text-white" />
                     </div>
-                    <h3 className="text-xl font-bold text-dark mb-3">
+                    <h3 className="text-lg sm:text-xl font-bold text-dark mb-2 sm:mb-3">
                       {reason.title}
                     </h3>
-                    <p className="text-sm text-muted-text leading-relaxed">
+                    <p className="text-xs sm:text-sm text-muted-text leading-relaxed">
                       {reason.description}
                     </p>
                   </CardContent>
@@ -114,8 +114,8 @@ export function WhyInternostic() {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="mt-16 max-w-4xl mx-auto"
         >
-          <div className="bg-gradient-to-r from-[#7A1C2E] to-[#4A1020] rounded-2xl p-8 sm:p-10 text-center shadow-xl shadow-[#7A1C2E]/15">
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-8">
+          <div className="bg-gradient-to-r from-[#7A1C2E] to-[#4A1020] rounded-2xl p-6 sm:p-10 text-center shadow-xl shadow-[#7A1C2E]/15">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-8">
               {[
                 { value: "55+", label: "Years Experience" },
                 { value: "4", label: "Product Suite" },
@@ -123,10 +123,10 @@ export function WhyInternostic() {
                 { value: "$299", label: "Starting Price" },
               ].map((stat) => (
                 <div key={stat.label}>
-                  <div className="text-3xl sm:text-4xl font-bold text-white tracking-tight">
+                  <div className="text-2xl sm:text-4xl font-bold text-white tracking-tight">
                     {stat.value}
                   </div>
-                  <div className="text-xs sm:text-sm text-white/50 font-medium mt-1">
+                  <div className="text-[10px] sm:text-sm text-white/50 font-medium mt-1">
                     {stat.label}
                   </div>
                 </div>

@@ -161,7 +161,7 @@ function DashboardMockup() {
         initial={{ opacity: 0, x: 20, y: 10 }}
         animate={{ opacity: 1, x: 0, y: 0 }}
         transition={{ delay: 1.2, duration: 0.5 }}
-        className="absolute -right-2 sm:-right-4 top-1/3 bg-white rounded-xl shadow-2xl shadow-black/20 p-3 sm:p-3.5 w-48 sm:w-56 border border-gray-100"
+        className="absolute right-2 sm:-right-4 top-1/3 bg-white rounded-xl shadow-2xl shadow-black/20 p-3 sm:p-3.5 w-44 sm:w-56 border border-gray-100"
       >
         <div className="flex items-start gap-2.5">
           <div className="h-7 w-7 rounded-full bg-[#28C840]/10 flex items-center justify-center shrink-0">
@@ -196,7 +196,7 @@ export function Hero() {
       {/* Grid pattern */}
       <div className="absolute inset-0 bg-grid opacity-50" />
 
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-20 pb-24 sm:pt-28 sm:pb-32">
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-16 pb-20 sm:pt-28 sm:pb-32">
         {/* Headline */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -211,7 +211,7 @@ export function Hero() {
             Introducing Blast Tax
           </Badge>
 
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-dark leading-[1.1]">
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-dark leading-[1.1]">
             Empowering Americans to{" "}
             <br className="hidden sm:block" />
             Resolve Their{" "}
@@ -252,7 +252,7 @@ export function Hero() {
           className="mt-14 max-w-3xl mx-auto"
         >
           {/* Tab buttons */}
-          <div className="flex flex-wrap justify-center gap-2 sm:gap-3">
+          <div className="tabs-scroll justify-center sm:flex-wrap sm:flex sm:justify-center sm:gap-3">
             {products.map((product) => {
               const Icon = product.icon;
               const isActive = activeTab === product.id;
@@ -260,7 +260,7 @@ export function Hero() {
                 <button
                   key={product.id}
                   onClick={() => setActiveTab(product.id)}
-                  className={`flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-200 cursor-pointer ${
+                  className={`flex items-center gap-2 px-4 sm:px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-200 cursor-pointer whitespace-nowrap shrink-0 ${
                     isActive
                       ? "bg-burgundy text-white shadow-lg shadow-burgundy/25 scale-[1.02]"
                       : "bg-white text-muted-text hover:text-dark border border-custom-border hover:border-burgundy/30 hover:shadow-md hover:shadow-dark/5"
@@ -305,8 +305,6 @@ export function Hero() {
         </motion.div>
       </div>
 
-      {/* Section bottom divider */}
-      <div className="section-divider" />
     </section>
   );
 }

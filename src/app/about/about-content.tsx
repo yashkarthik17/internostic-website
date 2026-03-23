@@ -90,7 +90,7 @@ export function AboutContent() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative overflow-hidden py-24 sm:py-32">
+      <section className="relative overflow-hidden py-16 sm:py-32">
         {/* Background */}
         <div className="absolute inset-0 bg-gradient-to-b from-white via-[#FDFBF9] to-[#F8F9FC]" />
         <div className="absolute inset-0 bg-grid opacity-40" />
@@ -110,11 +110,11 @@ export function AboutContent() {
             >
               About Internostic
             </Badge>
-            <h1 className="text-4xl sm:text-5xl font-bold text-dark tracking-tight leading-tight">
+            <h1 className="text-3xl sm:text-5xl font-bold text-dark tracking-tight leading-tight">
               The Company Behind{" "}
-              <span className="text-burgundy">Blast Tax</span>
+              <span className="text-gradient-bold">Blast Tax</span>
             </h1>
-            <p className="mt-6 text-lg sm:text-xl text-muted-text leading-relaxed">
+            <p className="mt-4 sm:mt-6 text-base sm:text-xl text-muted-text leading-relaxed">
               Founded to democratize tax resolution, Internostic is building
               technology that puts the power back in the hands of everyday
               Americans.
@@ -125,7 +125,7 @@ export function AboutContent() {
       </section>
 
       {/* Mission Section with Team Photo */}
-      <section className="py-24 sm:py-32">
+      <section className="py-16 sm:py-32">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-5xl mx-auto">
             <motion.div
@@ -142,7 +142,7 @@ export function AboutContent() {
                 >
                   Our Mission
                 </Badge>
-                <h2 className="text-3xl sm:text-4xl font-bold text-dark tracking-tight">
+                <h2 className="text-2xl sm:text-4xl font-bold text-dark tracking-tight">
                   Tax Resolution for Everyone
                 </h2>
                 <Separator className="my-6 w-20 bg-gold h-0.5" />
@@ -234,7 +234,7 @@ export function AboutContent() {
       </section>
 
       {/* The Challenge Section with IRS Forms Image */}
-      <section className="relative py-24 sm:py-32 bg-[#1A1A2E] text-white overflow-hidden">
+      <section className="relative py-16 sm:py-32 bg-[#1A1A2E] text-white overflow-hidden">
         <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)", backgroundSize: "64px 64px" }} />
         <div className="hero-orb w-[400px] h-[400px] bg-[#7A1C2E]/20 -top-24 -right-24 absolute" />
         <div className="hero-orb w-[300px] h-[300px] bg-[#C4956A]/10 -bottom-16 -left-16 absolute" />
@@ -255,7 +255,7 @@ export function AboutContent() {
                 >
                   The Challenge
                 </Badge>
-                <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">
+                <h2 className="text-2xl sm:text-4xl font-bold text-white tracking-tight">
                   A Broken Industry That Exploits the Vulnerable
                 </h2>
                 <div className="mt-6 space-y-4">
@@ -318,7 +318,7 @@ export function AboutContent() {
       </section>
 
       {/* By the Numbers Section */}
-      <section className="relative py-24 sm:py-32 overflow-hidden">
+      <section className="relative py-16 sm:py-32 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-white to-[#F8F9FC]" />
         <div className="absolute inset-0 bg-grid opacity-30" />
 
@@ -336,7 +336,7 @@ export function AboutContent() {
             >
               By the Numbers
             </Badge>
-            <h2 className="text-3xl sm:text-4xl font-bold text-dark tracking-tight">
+            <h2 className="text-2xl sm:text-4xl font-bold text-dark tracking-tight">
               Internostic at a Glance
             </h2>
             <p className="mt-4 text-lg text-muted-text leading-relaxed">
@@ -344,7 +344,7 @@ export function AboutContent() {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-6">
             {byTheNumbers.map((stat, index) => (
               <motion.div
                 key={stat.label}
@@ -370,7 +370,7 @@ export function AboutContent() {
       </section>
 
       {/* Values */}
-      <section className="relative py-24 sm:py-32 bg-[#F8F9FC]">
+      <section className="relative py-16 sm:py-32 bg-[#F8F9FC]">
         <div className="absolute inset-0 bg-dots" />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -394,7 +394,7 @@ export function AboutContent() {
             </p>
           </motion.div>
 
-          <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="mt-10 sm:mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {values.map((value, index) => {
               const Icon = value.icon;
               return (
@@ -426,7 +426,7 @@ export function AboutContent() {
       </section>
 
       {/* Full Team */}
-      <section className="relative py-24 sm:py-32">
+      <section className="relative py-16 sm:py-32">
         <div className="absolute inset-0 bg-gradient-to-b from-white to-[#FDFBF9]" />
         <div className="absolute inset-0 bg-grid opacity-30" />
 
@@ -453,7 +453,7 @@ export function AboutContent() {
             </p>
           </motion.div>
 
-          <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="mt-10 sm:mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8">
             {team.map((member, index) => (
               <motion.div
                 key={member.name}

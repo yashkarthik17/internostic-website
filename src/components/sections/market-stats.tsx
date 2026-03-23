@@ -88,9 +88,12 @@ export function MarketStats() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section className="relative py-24 sm:py-32 bg-[#F8F9FC]" ref={ref}>
+    <section className="relative py-20 sm:py-32 bg-[#F8F9FC]" ref={ref}>
       {/* Dot pattern overlay */}
       <div className="absolute inset-0 bg-dots" />
+      {/* Decorative orbs for visual depth */}
+      <div className="section-orb w-[400px] h-[400px] bg-[#7A1C2E]/[0.06] -top-32 -right-32 absolute" />
+      <div className="section-orb w-[350px] h-[350px] bg-[#C4956A]/[0.06] -bottom-24 -left-24 absolute" />
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
@@ -107,9 +110,9 @@ export function MarketStats() {
           >
             A Massive, Underserved Market
           </Badge>
-          <h2 className="text-3xl sm:text-4xl font-bold text-dark tracking-tight">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-dark tracking-tight">
             The Tax Resolution Industry{" "}
-            <span className="text-burgundy">Needs Disruption</span>
+            <span className="text-gradient-bold">Needs Disruption</span>
           </h2>
           <p className="mt-4 text-base sm:text-lg text-muted-text leading-relaxed max-w-2xl mx-auto">
             Millions of Americans are trapped in IRS debt with nowhere affordable to turn. The market opportunity is enormous.
@@ -117,7 +120,7 @@ export function MarketStats() {
         </motion.div>
 
         {/* Stats Grid */}
-        <div className="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8">
+        <div className="mt-12 sm:mt-16 grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-8">
           {stats.map((stat, index) => (
             <StatCard
               key={stat.label}
@@ -152,20 +155,20 @@ function StatCard({
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.15 }}
     >
-      <Card className={`border-0 border-t-4 ${styles.border} shadow-lg shadow-dark/5 bg-white h-full text-center ring-0 card-hover`}>
-        <CardContent className="pt-8 pb-8 px-6">
-          <div className={`mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-2xl ${styles.iconBg}`}>
-            <Icon className={`h-7 w-7 ${styles.iconColor}`} />
+      <Card className={`border-0 border-t-4 ${styles.border} shadow-lg shadow-dark/5 bg-white h-full text-center ring-0 card-hover card-gradient-border card-glow`}>
+        <CardContent className="pt-6 pb-6 sm:pt-8 sm:pb-8 px-4 sm:px-6">
+          <div className={`mx-auto mb-4 sm:mb-5 flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-2xl ${styles.iconBg}`}>
+            <Icon className={`h-6 w-6 sm:h-7 sm:w-7 ${styles.iconColor}`} />
           </div>
           <div className={`text-4xl sm:text-5xl font-bold ${styles.numColor} tracking-tight`}>
             {stat.prefix}
             {count}
             {stat.suffix}
           </div>
-          <div className="mt-2 text-base font-semibold text-dark">
+          <div className="mt-2 text-sm sm:text-base font-semibold text-dark">
             {stat.label}
           </div>
-          <p className="mt-3 text-sm text-muted-text leading-relaxed">
+          <p className="mt-2 sm:mt-3 text-xs sm:text-sm text-muted-text leading-relaxed">
             {stat.description}
           </p>
         </CardContent>

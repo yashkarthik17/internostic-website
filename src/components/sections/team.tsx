@@ -37,7 +37,7 @@ const team = [
 
 export function Team() {
   return (
-    <section className="relative py-24 sm:py-32 overflow-hidden">
+    <section className="relative py-20 sm:py-32 overflow-hidden">
       {/* Subtle background */}
       <div className="absolute inset-0 bg-gradient-to-b from-white via-white to-[#F8F9FC]" />
       <div className="absolute inset-0 bg-grid opacity-30" />
@@ -57,17 +57,17 @@ export function Team() {
           >
             Leadership
           </Badge>
-          <h2 className="text-3xl sm:text-4xl font-bold text-dark tracking-tight">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-dark tracking-tight">
             Our Team
           </h2>
-          <p className="mt-4 text-lg text-muted-text leading-relaxed">
+          <p className="mt-4 text-sm sm:text-base lg:text-lg text-muted-text leading-relaxed">
             Industry veterans and technologists united by a single mission: making
             tax resolution accessible to all.
           </p>
         </motion.div>
 
         {/* Team Grid */}
-        <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="mt-12 sm:mt-16 grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
           {team.map((member, index) => (
             <motion.div
               key={member.name}
@@ -76,25 +76,25 @@ export function Team() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <Card className="border-0 shadow-lg shadow-dark/5 bg-white h-full text-center ring-0 card-hover group">
-                <CardContent className="pt-8 pb-8 px-6">
+              <Card className="border-0 shadow-lg shadow-dark/5 bg-white h-full text-center ring-0 card-hover card-gradient-border card-glow group">
+                <CardContent className="pt-5 pb-5 px-3 sm:pt-8 sm:pb-8 sm:px-6">
                   {/* Gradient avatar */}
-                  <div className="mx-auto mb-5 flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-[#7A1C2E] to-[#C4956A] shadow-lg shadow-[#7A1C2E]/20 group-hover:shadow-xl group-hover:shadow-[#7A1C2E]/25 transition-shadow duration-300">
-                    <span className="text-2xl font-bold text-white">
+                  <div className="mx-auto mb-3 sm:mb-5 flex h-14 w-14 sm:h-20 sm:w-20 items-center justify-center rounded-full bg-gradient-to-br from-[#7A1C2E] to-[#C4956A] shadow-lg shadow-[#7A1C2E]/20 group-hover:shadow-xl group-hover:shadow-[#7A1C2E]/25 transition-shadow duration-300">
+                    <span className="text-lg sm:text-2xl font-bold text-white">
                       {member.initials}
                     </span>
                   </div>
-                  <h3 className="text-lg font-semibold text-dark">
+                  <h3 className="text-sm sm:text-lg font-semibold text-dark">
                     {member.name}
                   </h3>
-                  <p className="mt-1 text-sm font-medium text-burgundy">
+                  <p className="mt-0.5 sm:mt-1 text-xs sm:text-sm font-medium text-burgundy">
                     {member.role}
                   </p>
-                  <p className="mt-1 text-[11px] text-muted-text/70 uppercase tracking-wider font-medium">
+                  <p className="mt-0.5 sm:mt-1 text-[9px] sm:text-[11px] text-muted-text/70 uppercase tracking-wider font-medium">
                     {member.detail}
                   </p>
-                  <div className="my-4 h-px bg-gradient-to-r from-transparent via-custom-border to-transparent" />
-                  <p className="text-sm text-muted-text leading-relaxed">
+                  <div className="my-3 sm:my-4 h-px bg-gradient-to-r from-transparent via-custom-border to-transparent" />
+                  <p className="text-xs sm:text-sm text-muted-text leading-relaxed line-clamp-4 sm:line-clamp-none">
                     {member.bio}
                   </p>
                 </CardContent>
@@ -104,8 +104,6 @@ export function Team() {
         </div>
       </div>
 
-      {/* Section bottom divider */}
-      <div className="absolute bottom-0 left-0 right-0 section-divider" />
     </section>
   );
 }
