@@ -596,10 +596,10 @@ function Footer() {
               <p>Costa Mesa, CA 92626</p>
               <p className="mt-3">
                 <a
-                  href="tel:8057916660"
+                  href="tel:9495394371"
                   className="hover:text-text-main transition-colors"
                 >
-                  805-791-6660
+                  949-539-4371
                 </a>
               </p>
             </div>
